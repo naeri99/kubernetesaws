@@ -1,5 +1,5 @@
 resource "aws_instance" "test-ec2-bastion" {
-
+  count = 3 
   ami                         = "ami-00c8b788e67dcca79"
   associate_public_ip_address = "true"
   availability_zone           = "ap-northeast-2a"
@@ -25,7 +25,7 @@ resource "aws_instance" "test-ec2-bastion" {
   hibernation                          = "false"
 
   instance_initiated_shutdown_behavior = "stop"
-  instance_type                        = "t2.medium"
+  instance_type                        = "t3.xlarge"
   ipv6_address_count                   = "0"
   metadata_options {
     http_endpoint               = "enabled"
